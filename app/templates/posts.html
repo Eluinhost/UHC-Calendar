@@ -3,19 +3,23 @@
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
     <ion-content class="has-header">
-        <ul class="list">
-            <li class="item item-divider">
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="updatePosts()">
+        </ion-refresher>
+        <ion-list>
+            <ion-item class="item-divider" ng-show="posts.length > 0">
                 Upcoming Matches
-            </li>
-            <li ng-repeat="post in posts" class="item">
+            </ion-item>
+            <ion-item ng-repeat="post in posts">
                 {{ post.data.score }} - {{ post.data.title }} ({{ post.data.author }})
-            </li>
-            <li class="item item-divider" ng-show="unparsed.length > 0">
+            </ion-item>
+            <ion-item class="item-divider" ng-show="unparsed.length > 0">
                 Unparsed Upcoming Matches
-            </li>
-            <li ng-repeat="post in unparsed" class="item">
+            </ion-item>
+            <ion-item ng-repeat="post in unparsed">
                 {{ post.data.score }} - {{ post.data.title }} ({{ post.data.author }})
-            </li>
-        </ul>
+            </ion-item>
+        </ion-list>
     </ion-content>
 </ion-view>
