@@ -8,72 +8,35 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('UHCCalendar', ['ionic', 'UHCCalendar.controllers', 'UHCCalendar.services'])
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    if(window.StatusBar) {
-      StatusBar.styleDefault();
-    }
-  });
-})
-
-.config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
-
-    .state('app', {
-      url: '/app',
-      abstract: true,
-      templateUrl: 'templates/menu.html',
-      controller: 'AppCtrl'
+    .run(function ($ionicPlatform) {
+        $ionicPlatform.ready(function () {
+            if (window.StatusBar) {
+                StatusBar.styleDefault();
+            }
+        });
     })
 
-    .state('app.search', {
-      url: '/search',
-      views: {
-        'menuContent' :{
-          templateUrl: 'templates/search.html'
-        }
-      }
-    })
+    .config(function ($stateProvider, $urlRouterProvider) {
+        $stateProvider
 
-    .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent' :{
-          templateUrl: 'templates/browse.html'
-        }
-      }
-    })
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent' :{
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
+            .state('app', {
+                url: '/app',
+                abstract: true,
+                templateUrl: 'templates/menu.html',
+                controller: 'AppCtrl'
+            })
 
-    .state('app.single', {
-      url: '/playlists/:playlistId',
-      views: {
-        'menuContent' :{
-          templateUrl: 'templates/playlist.html',
-          controller: 'PlaylistCtrl'
-        }
-      }
-    })
+            .state('app.posts', {
+                url: '/posts',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/posts.html',
+                        controller: 'LatestCtrl'
+                    }
+                }
+            });
 
-      .state('app.posts', {
-          url: '/posts',
-          views: {
-              'menuContent': {
-                  templateUrl: 'templates/posts.html',
-                  controller: 'LatestCtrl'
-              }
-          }
-      });
-
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
-});
+        // if none of the above states are matched, use this as the fallback
+        $urlRouterProvider.otherwise('/app/playlists');
+    });
 
