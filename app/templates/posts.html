@@ -13,7 +13,8 @@
             </ion-item>
             <ion-item ng-repeat="post in posts" class="item-button-right">
                 {{ post.data.score }} <i class="icon" ng-class="{'ion-arrow-up-a orangered': post.data.score > 0, 'ion-arrow-down-a periwinkle': post.data.score < 0, 'ion-arrow-right-a neutral': post.data.score == 0}"></i>
-                {{ post.data.title }} ({{ post.data.author }})
+                <small class="padding-right opacity-50"><i class="icon ion-at"></i>{{ post.data.author }}</small>
+                <b>{{ post.data.title }}</b>
                 <button class="button" ng-class="post.uhccalendar.notify ? 'button-positive' : 'button-light'">
                     <i class="icon ion-ios7-alarm-outline"></i>&nbsp;{{ post.uhccalendar.timeLeft }}
                 </button>

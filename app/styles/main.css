@@ -18,3 +18,7 @@
 .neutral {
     color: #d3d3d3;
 }
+
+.opacity-50 {
+    opacity: 0.5;
+}
