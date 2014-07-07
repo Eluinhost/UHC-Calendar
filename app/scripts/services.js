@@ -21,6 +21,7 @@ angular.module('UHCCalendar.services', [])
                                 unparsed.push(element);
                                 return false;
                             }
+                            element.data.title = element.data.title.substring(element.data.title.indexOf('-')+2);
                             element.uhccalendar = {
                                 time: time
                             };
