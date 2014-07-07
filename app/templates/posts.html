@@ -3,9 +3,10 @@
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
     <ion-content class="has-header">
-        <h1>POSTS</h1>
-        <div ng-repeat="post in posts">
-            {{ post.data.score }} - {{ post.data.title }} ({{ post.data.author }})
-        </div>
+        <ul class="list">
+            <li ng-repeat="post in posts" class="item">
+                {{ post.data.score }} - {{ post.data.title }} ({{ post.data.author }})
+            </li>
+        </ul>
     </ion-content>
 </ion-view>
