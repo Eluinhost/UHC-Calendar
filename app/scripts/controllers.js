@@ -19,7 +19,8 @@ angular.module('UHCCalendar.controllers', [])
 })
 
 .controller('LatestCtrl', ['$scope', 'RedditPostsService', function($scope, SearchPostsService) {
-    SearchPostsService.query().then(function(data) {
-        $scope.posts = data;
+    SearchPostsService.query().then(function(valid, invalid) {
+        $scope.posts = valid;
+        $scope.unparsed = invalid;
     });
 }]);
