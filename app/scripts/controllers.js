@@ -16,4 +16,10 @@ angular.module('UHCCalendar.controllers', [])
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
-});
+})
+
+.controller('LatestCtrl', ['$scope', 'RedditPostsService', function($scope, SearchPostsService) {
+    SearchPostsService.query().then(function(data) {
+        $scope.posts = data;
+    });
+}]);
