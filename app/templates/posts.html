@@ -11,8 +11,9 @@
             <ion-item class="item-divider" ng-show="posts.length > 0">
                 Upcoming Matches
             </ion-item>
-            <ion-item ng-repeat="post in posts">
+            <ion-item ng-repeat="post in posts" class="item-button-right">
                 {{ post.data.score }} - {{ post.data.title }} ({{ post.data.author }})
+                <button class="button" ng-class="post.uhccalendar.notify ? 'button-positive' : 'button-light'"><i class="icon ion-ios7-alarm-outline"></i></button>
             </ion-item>
             <ion-item class="item-divider" ng-show="unparsed.length > 0">
                 Unparsed Upcoming Matches
