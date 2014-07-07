@@ -4,7 +4,16 @@
     </ion-nav-buttons>
     <ion-content class="has-header">
         <ul class="list">
+            <li class="item item-divider">
+                Upcoming Matches
+            </li>
             <li ng-repeat="post in posts" class="item">
+                {{ post.data.score }} - {{ post.data.title }} ({{ post.data.author }})
+            </li>
+            <li class="item item-divider" ng-show="unparsed.length > 0">
+                Unparsed Upcoming Matches
+            </li>
+            <li ng-repeat="post in unparsed" class="item">
                 {{ post.data.score }} - {{ post.data.title }} ({{ post.data.author }})
             </li>
         </ul>
